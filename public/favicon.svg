@@ -1,0 +1,21 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stemGrad" x1="6" y1="6" x2="22" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FACC15" />
+      <stop offset="1" stop-color="#EAB308" />
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="18" y1="8" x2="42" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE047" />
+      <stop offset="1" stop-color="#FACC15" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="22" y1="26" x2="40" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9061F9" />
+      <stop offset="1" stop-color="#7E3AF2" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="#0A0C10" stroke="#FACC15" stroke-width="2"/>
+  <path d="M12 11C12 9.89543 12.8954 9 14 9H19C21.7614 9 24 11.2386 24 14V34C24 36.7614 21.7614 39 19 39H14C12.8954 39 12 38.1046 12 37V11Z" fill="url(#stemGrad)" />
+  <path d="M24 16L35.2 9.5C36.3 8.8 37.7 9.6 37.7 10.9V18.1C37.7 18.9 37.2 19.6 36.5 20L28 24.5L24 16Z" fill="url(#arrowGrad)" />
+  <path d="M27.5 23.5L36.5 28C37.2 28.4 37.7 29.1 37.7 29.9V37.1C37.7 38.4 36.3 39.2 35.2 38.5L24 32L27.5 23.5Z" fill="url(#purpleGrad)" />
+  <circle cx="21" cy="24" r="2.2" fill="#0A0C10" />
+</svg>

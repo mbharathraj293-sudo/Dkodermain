@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Section 2 & 4: Light-First Centralized Design Tokens */
+  --dk-primary: #5B21B6;
+  --dk-primary-bright: #7C3AED;
+  --dk-primary-light: #7C3AED;
+  --dk-primary-soft: #EDE9FE;
+  --dk-yellow: #FACC15;
+  --dk-bg: #FAF9FF;
+  --dk-surface: #FFFFFF;
+  --dk-surface-elevated: #FFFFFF;
+  --dk-border: #E8E4F0;
+  --dk-border-subtle: #F0EDF7;
+  --dk-text: #18152B;
+  --dk-text-muted: #686477;
+  --dk-success: #16A34A;
+  --dk-warning: #F59E0B;
+  --dk-danger: #DC2626;
+
+  /* Legacy variable mappings */
+  --color-charcoal: #FAF9FF;
+  --color-charcoal-dark: #FAF9FF;
+  --color-surface: #FFFFFF;
+  --color-yellow: #FACC15;
+  --color-purple: #5B21B6;
+  --color-border: #E8E4F0;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: #FAF9FF;
+    color: #17152B;
+    touch-action: auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  #root {
+    width: 100%;
+    background-color: #FAF9FF;
+  }
+
+  /* Mobile: Natural document scrolling */
+  @media (max-width: 767px) {
+    html, body {
+      min-height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    #root {
+      min-height: 100dvh;
+    }
+  }
+
+  /* Desktop: Fixed dashboard SaaS shell viewport */
+  @media (min-width: 768px) {
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+    #root {
+      height: 100vh;
+      overflow: hidden;
+    }
+  }
+
+  /* Subtle soft purple background glow (Section 6) */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    background: 
+      radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 25%, rgba(250, 204, 21, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 50% 80%, rgba(91, 33, 182, 0.04) 0%, transparent 45%);
+  }
+
+  /* Refined Light Global Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #D4CEE4 transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4CEE4;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B3ABC8;
+  }
+}
+
+@layer utilities {
+  /* Section 28 & 31: Premium Light SaaS Cards */
+  .tech-card {
+    background: #FFFFFF;
+    border: 1px solid #E8E4F0;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px -1px rgba(91, 33, 182, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  .tech-card-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tech-card-hover:hover {
+    background: #FFFFFF;
+    border-color: #7C3AED;
+    box-shadow: 0 10px 24px -4px rgba(91, 33, 182, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #D8D2E6;
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #B6ADC9;
+  }
+
+  /* Aurora Subtle Gradient Animations */
+  @keyframes aurora-blob-1 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(25px, -20px) scale(1.08);
+    }
+  }
+
+  @keyframes aurora-blob-2 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(-20px, 25px) scale(0.95);
+    }
+  }
+
+  @keyframes career-pulse {
+    0% {
+      stroke-dashoffset: 100;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes signal-travel {
+    0% {
+      transform: translateX(0%);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-aurora-1 {
+    animation: aurora-blob-1 12s ease-in-out infinite;
+  }
+
+  .animate-aurora-2 {
+    animation: aurora-blob-2 15s ease-in-out infinite;
+  }
+
+  .animate-signal-travel {
+    animation: signal-travel 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-aurora-1, .animate-aurora-2, .animate-signal-travel {
+    animation: none !important;
+  }
+}
